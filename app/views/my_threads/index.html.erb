@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<h1>スレッド一覧</h1>
+
+<%= render partial: "list", locals: {my_threads: @my_threads} %>
+
+<%= link_to 'New My Thread', new_my_thread_path %>
