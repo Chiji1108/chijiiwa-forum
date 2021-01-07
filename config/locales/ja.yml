@@ -1,14 +1,18 @@
 ja:
   activerecord:
     attributes:
+      post:
+        content: 投稿内容
       user:
         username: ニックネーム
         avatar: プロフィール画像
       my_thread:
         title: タイトル
         description: 説明
+        thumbnail: サムネイル
         created_at: 作成日
         updated_at: 更新日
         user: 作成者
     models:
       my_thread: スレッド
+      post: ポスト

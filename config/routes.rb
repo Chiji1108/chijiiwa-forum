@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   resources :my_threads do
-    resources :posts
+    resources :posts, :except => [:index, :show]
   end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

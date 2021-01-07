@@ -1,7 +1,7 @@
 <div class='row'>
   <div class='grid'>
     <% my_threads.each do |my_thread| %>
-      <%= link_to my_thread_path(my_thread) do %>
+      <%= link_to my_thread_path(my_thread), class: 'text-decoration-none text-reset' do %>
       <div class='card'>
         <% if my_thread.thumbnail.attached? %>
         <%= image_tag my_thread.thumbnail, class: 'card-img-top', style: 'height: 180px; object-fit: cover;'%>

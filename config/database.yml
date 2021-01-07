@@ -20,6 +20,10 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# TODO
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # database: db/production.sqlite3

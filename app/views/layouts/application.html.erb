@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ブロスタ掲示板</title>
+    <title>千々岩掲示板</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <%= link_to "ブロスタ掲示板", root_path, class: "navbar-brand"%>
+        <%= link_to "千々岩掲示板", root_path, class: "navbar-brand"%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,11 +25,14 @@
           </ul>
           <div class="d-flex">
             <% if user_signed_in? %>
-              <% if current_user.avatar.attached? %>
-                <%= active_link_to image_tag(current_user.avatar, class: 'avatar'), edit_user_registration_path, class: 'my-auto mr-2' %>
-              <% else %>
-                <%= active_link_to image_tag('default-avatar.png', class: 'avatar'), edit_user_registration_path, class: 'my-auto mr-2' %>
-              <% end %>  
+              <%= active_link_to edit_user_registration_path, class: 'mr-4 d-flex align-items-center text-decoration-none text-light' do %>
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag(current_user.avatar, class: 'avatar') %>
+                <% else %>
+                  <%= image_tag('default-avatar.png', class: 'avatar') %>
+                <% end %>  
+                <%= current_user.username %>
+              <% end %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link btn btn-outline-primary' %>
             <% else %>
               <%= active_link_to "ログイン", new_user_session_path, class: 'nav-link' %>

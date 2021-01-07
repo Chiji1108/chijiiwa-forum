@@ -9,7 +9,7 @@
     <% else %>
       <%= image_tag 'default-avatar.png', size: '100x100' %>
     <% end %>
-    <%= f.input :avatar, as: :file %>
+    <%= f.input :avatar, as: :file, accept: "image/png, image/jpeg" %>
     <%= f.input :username, 
                 required: true, 
                 autofocus: true, 
